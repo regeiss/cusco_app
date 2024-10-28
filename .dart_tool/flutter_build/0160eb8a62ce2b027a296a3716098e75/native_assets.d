@@ -1,0 +1,1 @@
+ /Users/robertoedgargeiss/projetosFlutter/cusco_app/.dart_tool/flutter_build/0160eb8a62ce2b027a296a3716098e75/native_assets.yaml: 
