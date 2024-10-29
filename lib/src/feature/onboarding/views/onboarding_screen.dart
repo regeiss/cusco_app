@@ -154,7 +154,6 @@ class OnboardingScreen2 extends ConsumerWidget {
               fontWeight: FontWeight.w600,
               color: Color.fromARGB(255, 248, 64, 64))),
       onDone: () async {
-        bool isLoading = state.isLoading;
         await ref
             .read(onboardingControllerProvider.notifier)
             .completeOnboarding();
