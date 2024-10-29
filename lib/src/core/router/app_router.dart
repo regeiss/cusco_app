@@ -13,7 +13,7 @@ import 'package:gtk_flutter/src/feature/auth/presentation/custom_sign_in_screen.
 import 'package:gtk_flutter/src/feature/home/presentation/home_screen.dart';
 import 'package:gtk_flutter/src/feature/matches/presentation/matches_screen.dart';
 import 'package:gtk_flutter/src/feature/onboarding/data/onboarding_repository.dart';
-import 'package:gtk_flutter/src/feature/onboarding/presentation/onboarding_screen.dart';
+import 'package:gtk_flutter/src/feature/onboarding/views/onboarding_screen.dart';
 
 import 'package:gtk_flutter/src/feature/pet/domain/pet.dart';
 import 'package:gtk_flutter/src/feature/pet/presentation/screen/pet_lista_screen.dart';
@@ -33,7 +33,7 @@ enum AppRoute { onboarding, signIn, entry, addAbrigo, editaAbrigo, abrigos, perf
 
 @riverpod
 GoRouter goRouter(GoRouterRef ref) {
-  // rebuild GoRouter when app startup state changes
+ 
   final appStartupState = ref.watch(appStartupProvider);
   final authRepository = ref.watch(authRepositoryProvider);
 
@@ -53,7 +53,6 @@ GoRouter goRouter(GoRouterRef ref) {
       final didCompleteOnboarding = onboardingRepository.isOnboardingComplete();
       final path = state.uri.path;
       if (!didCompleteOnboarding) {
-        // https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/redirection.dart#L78
         if (path != '/onboarding') {
           return '/onboarding';
         }
@@ -92,7 +91,7 @@ GoRouter goRouter(GoRouterRef ref) {
         path: '/onboarding',
         name: AppRoute.onboarding.name,
         pageBuilder: (context, state) => const NoTransitionPage(
-          child: OnBoardingScreen(),
+          child: OnboardingScreen2(),
         ),
       ),
       GoRoute(

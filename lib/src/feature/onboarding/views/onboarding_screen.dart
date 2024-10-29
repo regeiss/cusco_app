@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gtk_flutter/src/core/router/app_router.dart';
 import 'package:gtk_flutter/src/feature/onboarding/presentation/onboarding_controller.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -10,6 +11,7 @@ class OnboardingScreen2 extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     final state = ref.watch(onboardingControllerProvider);
     final introKey = GlobalKey<IntroductionScreenState>();
   
@@ -152,11 +154,12 @@ class OnboardingScreen2 extends ConsumerWidget {
               fontWeight: FontWeight.w600,
               color: Color.fromARGB(255, 248, 64, 64))),
       onDone: () async {
+        bool isLoading = state.isLoading;
         await ref
             .read(onboardingControllerProvider.notifier)
             .completeOnboarding();
         if (context.mounted) {
-          context.goNamed('/home');
+          context.goNamed(AppRoute.signIn.name);
         }
       },
       nextStyle: ButtonStyle(

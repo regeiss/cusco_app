@@ -169,21 +169,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Center(
-                  child:
-                  PrimaryButton(
-                    text: 'Get Started'.hardcoded,
-                    isLoading: state.isLoading,
-                    onPressed: state.isLoading
-                        ? null
-                        : () async {
-                            await ref
-                                .read(onboardingControllerProvider.notifier)
-                                .completeOnboarding();
-                            if (context.mounted) {
-                              // go to sign in page after completing onboarding
-                              context.goNamed(AppRoute.signIn.name);
-                            }
-                          },
+                  child: Text(
+                    "Login / Registration",
+                    style: TextStyle(
+                      fontFamily: "HappyMonkey",
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),
